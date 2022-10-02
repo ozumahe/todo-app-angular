@@ -1,0 +1,24 @@
+<div>
+  <form (submit)="addtodo()">
+    <div class="input_container">
+      <input
+        type="text"
+        name="textInput"
+        placeholder="Enter text"
+        [(ngModel)]="textInput"
+      />
+      <button class="addbtn">Add</button>
+    </div>
+  </form>
+
+  <div *ngFor="let todo of todos">
+    <div
+      class="todo"
+      [ngClass]="todo.completed ? 'done' : ''"
+      (click)="toggleComplete(todo.id)"
+    >
+      <h5>{{ todo.content }}</h5>
+      <button class="removebtn" (click)="remove(todo.id)">X</button>
+    </div>
+  </div>
+</div>
